@@ -33,13 +33,19 @@
     }
   },
   "Item": {
-    "types": [ "item" ],
+    "types": [ "item", "room" ],
     "item": {
       "description": "",
       "quantity": 1,
       "weight": 0,
       "attributes": {},
       "groups": {}
+    },
+    "room": {
+      "description": "",
+      "exits": {},
+      "items": {},
+      "actors": {}
     }
   }
 }
