@@ -8,10 +8,13 @@
           "value": 11,
           "max": 12
         }
+      },
+      "position": {
+        "room":  ""
       }
     },
     "character": {
-      "templates": [ "common" ],
+      "templates": [ "common", "position" ],
       "biography": "",
       "health": {
         "value": 10,
@@ -44,8 +47,8 @@
     "room": {
       "description": "",
       "exits": {},
-      "items": {},
-      "actors": {}
+      "items": [],
+      "actors": []
     }
   }
 }
