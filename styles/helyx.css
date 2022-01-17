@@ -1,0 +1,9 @@
+
+.helyx.sheet.item .sheet-body .description .editor {
+    height: 250px;
+    border: 1px solid black;
+}
+
+.helyx.sheet.item .sheet-body .description .editor .editor-content {
+        padding: 0 5px;
+}
