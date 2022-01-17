@@ -1,0 +1,27 @@
+{
+  "name": "helyx",
+  "title": "Helyx",
+  "description": "An OSR system to play solo adventures",
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
+  "author": "Deidril",
+  "esmodules": [ "module/helyx.js" ],
+  "styles": [ "styles/helyx.css" ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "https://github.com/deidril/helyx",
+  "manifest": "https://github.com/deidril/helyx/blob/dev/system.json",
+  "download": "https://github.com/deidril/hackmaster5/archive/refs/heads/versions/0_0_1.zip",
+  "license": "LICENSE.txt"
+}
