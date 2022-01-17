@@ -1,5 +1,8 @@
 import { HelyxItemSheet } from "./items/item-sheet.js";
+import ChatCommands from "./sys/chat_commands.js";
 
+import CMDLookRoom from "./commands/cmd_look_room.js"
+import CMDStatRoom from "./commands/cmd_stat_room.js"
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -16,6 +19,7 @@ Hooks.once("init", async function () {
 });
 
 Hooks.once('ready', function () {
+    /*
     const leftSection = document.querySelector('#ui-left');
     leftSection.setAttribute('style', `width: 60px`);
 
@@ -33,4 +37,43 @@ Hooks.once('ready', function () {
 
     const sidebar = document.querySelector('#sidebar');
     sidebar.setAttribute('style', `width: 860px`);
+    */
+
+    let chatCommands = new ChatCommands();
+    window.game.chatCommands = chatCommands;
+
+    Hooks.on("chatMessage", (chatlog, messageText, chatData) => {
+        return chatCommands.handleChatMessage(chatlog, messageText, chatData);
+    });
+
+
+    Hooks.callAll("chatCommandsReady", chatCommands);
 });
+
+Hooks.on("chatCommandsReady", function (chatCommands) {
+
+    // (GM Only) This Command will display the text after the command as well as invoke the method
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+        commandKey: "/statroom",
+        invokeOnCommand: (chatlog, messageText, chatdata) => {
+            CMDStatRoom.invoke(chatlog, messageText, chatdata);
+        },
+        shouldDisplayToChat: false,
+        iconClass: "fa-sticky-note",
+        description: "Stat room",
+        gmOnly: true
+    }));
+
+    // (GM Only) This Command will display the text after the command as well as invoke the method
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+        commandKey: "/look",
+        invokeOnCommand: (chatlog, messageText, chatdata) => {
+            CMDLookRoom.invoke(chatlog, messageText, chatdata);
+        },
+        shouldDisplayToChat: false,
+        iconClass: "fa-sticky-note",
+        description: "Look room",
+        gmOnly: false
+    }));
+});
+
