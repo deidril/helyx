@@ -11,7 +11,12 @@ export default class ChatCommand {
         this.iconClass = iconClass;
         this.description = description;
         this.gmOnly = gmOnly;
+        this.syntax = '';
     }
+
+    syntax() {
+        return this.syntax;
+	}
 
     // /**
     //  * The chat command, such as /command

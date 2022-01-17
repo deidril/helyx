@@ -1,11 +1,8 @@
 export default class CMDStatRoom {
 
-    static invoke(chatlog, messageText, chatdata) {
-        //console.log('chatlog' + JSON.stringify(chatlog));
-        console.log('messageText' + messageText);
-        //console.log('chatdata' + JSON.stringify(chatdata));
+    static invoke(command, chatlog, messageText, chatdata) {
 
-        const r = game.items.getName("testroom");
+        const r = game.items.getName(messageText);
         if (r) {
 
             const obj = JSON.stringify(r);
@@ -14,7 +11,7 @@ export default class CMDStatRoom {
         else {
             ChatMessage.create({
                 user: game.user._id,
-                content: "testroom pas trouvé"
+                content: messageText + " not found."
             });
         }
 

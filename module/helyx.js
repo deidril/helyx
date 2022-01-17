@@ -3,6 +3,7 @@ import ChatCommands from "./sys/chat_commands.js";
 
 import CMDLookRoom from "./commands/cmd_look_room.js"
 import CMDStatRoom from "./commands/cmd_stat_room.js"
+import CMDTransport from "./commands/cmd_transport.js"
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -55,8 +56,8 @@ Hooks.on("chatCommandsReady", function (chatCommands) {
     // (GM Only) This Command will display the text after the command as well as invoke the method
     chatCommands.registerCommand(chatCommands.createCommandFromData({
         commandKey: "/statroom",
-        invokeOnCommand: (chatlog, messageText, chatdata) => {
-            CMDStatRoom.invoke(chatlog, messageText, chatdata);
+        invokeOnCommand: (command, chatlog, messageText, chatdata) => {
+            CMDStatRoom.invoke(command, chatlog, messageText, chatdata);
         },
         shouldDisplayToChat: false,
         iconClass: "fa-sticky-note",
@@ -67,13 +68,26 @@ Hooks.on("chatCommandsReady", function (chatCommands) {
     // (GM Only) This Command will display the text after the command as well as invoke the method
     chatCommands.registerCommand(chatCommands.createCommandFromData({
         commandKey: "/look",
-        invokeOnCommand: (chatlog, messageText, chatdata) => {
-            CMDLookRoom.invoke(chatlog, messageText, chatdata);
+        invokeOnCommand: (command, chatlog, messageText, chatdata) => {
+            CMDLookRoom.invoke(command, chatlog, messageText, chatdata);
         },
         shouldDisplayToChat: false,
         iconClass: "fa-sticky-note",
         description: "Look room",
         gmOnly: false
+    }));
+
+    // (GM Only) This Command will display the text after the command as well as invoke the method
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+        commandKey: "/transport",
+        invokeOnCommand: (command, chatlog, messageText, chatdata) => {
+            CMTransportRoom.invoke(command, chatlog, messageText, chatdata);
+        },
+        shouldDisplayToChat: false,
+        iconClass: "fa-sticky-note",
+        description: "Transport an actor into a room",
+        gmOnly: true,
+        syntax: 'actorname roomname'
     }));
 });
 

@@ -83,7 +83,7 @@ export default class ChatCommands {
             }
 
             if (command.invokeOnCommand != undefined) {
-                let modifiedText = command.invokeOnCommand(chatlog, messageText, chatData);
+                let modifiedText = command.invokeOnCommand(command, chatlog, messageText, chatData);
                 if (modifiedText != undefined) {
                     messageText = modifiedText;
                 }

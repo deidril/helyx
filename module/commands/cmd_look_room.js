@@ -1,13 +1,11 @@
 export default class CMDLookRoom {
 
-    static invoke(chatlog, messageText, chatdata) {
-        console.log(messageText);
+    static invoke(command, chatlog, messageText, chatdata) {
+
         const r = game.items.getName(messageText);
         if (r) {
 
-            console.log(JSON.stringify(r.data));
             const obj = '<H2>' + r.name + '</H2><P>' + r.data.data.description + '</P>';
-            console.log(obj);
             ChatMessage.create({ content: obj });
         }
         else {
