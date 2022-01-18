@@ -44,7 +44,8 @@ export default class ChatCommands {
             this._getOrDefault(data.createdMessageType, 0),
             this._getOrDefault(data.iconClass, "fa-terminal"),
             this._getOrDefault(data.description, "No description provided"),
-            this._getOrDefault(data.gmOnly, false)
+            this._getOrDefault(data.gmOnly, false),
+            this._getOrDefault(data.syntax, "<not described>"),
         );
     }
 

@@ -81,7 +81,7 @@ Hooks.on("chatCommandsReady", function (chatCommands) {
     chatCommands.registerCommand(chatCommands.createCommandFromData({
         commandKey: "/transport",
         invokeOnCommand: (command, chatlog, messageText, chatdata) => {
-            CMTransportRoom.invoke(command, chatlog, messageText, chatdata);
+            CMDTransport.invoke(command, chatlog, messageText, chatdata);
         },
         shouldDisplayToChat: false,
         iconClass: "fa-sticky-note",

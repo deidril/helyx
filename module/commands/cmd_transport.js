@@ -1,10 +1,12 @@
 import WORLD from "../api/api_world.js"
 
-export default class CMDLookRoom {
+export default class CMDTransportRoom {
 
     static invoke(command, chatlog, messageText, chatdata) {
-        const args = messageText.split();
-        if (args.size() != '2') {
+        const args = messageText.split(' ');
+        if (args.length != '2') {
+            console.log(' there is ' + args.length + ' args');
+            console.log(JSON.stringify(args));
             ChatMessage.create({
                 user: game.user._id,
                 content: command.syntax
@@ -14,9 +16,11 @@ export default class CMDLookRoom {
 
         const who = game.actors.getName(args[0]);
         if (who == null) {
+            const content = 'actor ' + args[0] + ' not found.';
+            console.log(content);
             ChatMessage.create({
                 user: game.user._id,
-                content: 'actor ' + args[0] + ' not found.'
+                content: content
             });
             return;
         }
@@ -32,6 +36,11 @@ export default class CMDLookRoom {
 
         WORLD.extract_actor(who);
         WORLD.insert_actor(who, room);
+
+        ChatMessage.create({
+            user: game.user._id,
+            content: args[0] + ' #' + who._id + ' transported to ' + args[1] + ' #' + room._id
+        });
 
     }
 }

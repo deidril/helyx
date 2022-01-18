@@ -11,7 +11,6 @@ export default class CMDLookRoom {
         else {
             ChatMessage.create({
                 user: game.user._id,
-                speaker: ChatMessage.getSpeaker({ token: actor }),
                 content: `room ${r.name} not found`
             });
         }
