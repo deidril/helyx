@@ -7,3 +7,40 @@
 .helyx.sheet.item .sheet-body .description .editor .editor-content {
         padding: 0 5px;
 }
+
+.event-dialog .event-section {
+    overflow: auto;
+}
+
+.event-dialog .event-section .event-block {
+    float: left;
+    width: calc(100% - 320px);
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.event-dialog .event-section .event-name {
+    float: left;
+    width: 150px;
+    height: 100%;
+    line-height: 200px;    
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.event-dialog .event-section .event-portrait {
+    width: 100%;
+    height: 100%;
+}
+
+.event-dialog .event-section .event-actor {
+    float: left;
+    width: 150px;
+    height: 100%;
+    line-height: 200px;    
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+}

@@ -3,6 +3,7 @@ import { HelyxItemSheet } from "./items/item-sheet.js";
 import ChatCommands from "./sys/chat_commands.js";
 
 import CMDLookRoom from "./commands/cmd_look_room.js"
+import CMDStartEvent from "./commands/cmd_start_event.js"
 import CMDStatRoom from "./commands/cmd_stat_room.js"
 import CMDTransport from "./commands/cmd_transport.js"
 
@@ -94,5 +95,18 @@ Hooks.on("chatCommandsReady", function (chatCommands) {
         gmOnly: true,
         syntax: 'actorname roomname'
     }));
+
+    // (GM Only) This Command will display the text after the command as well as invoke the method
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+        commandKey: "/estart",
+        invokeOnCommand: (command, chatlog, messageText, chatdata) => {
+            CMDStartEvent.invoke(command, chatlog, messageText, chatdata);
+        },
+        shouldDisplayToChat: false,
+        iconClass: "fa-sticky-note",
+        description: "Start an event",
+        gmOnly: true,
+        syntax: 'eventname'
+    }));    
 });
 
