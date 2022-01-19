@@ -19,4 +19,20 @@ export default class WORLD {
         who.setRoom(room.id);
     }
 
+    static listActors(arrayIds) {
+        let res = "";
+        for (const i of arrayIds) {
+            if (res.lgnth == 0) {
+                res += ", ";
+            }
+            const who = game.actors.get(i);
+            if (who == undefined) {
+                res += "#" + i;
+            } else {
+                res += who.data.name;
+            }
+        }
+        return res;
+    }
+
 }
