@@ -1,3 +1,4 @@
+import { HelyxActor } from './actors/actor.js';
 import { HelyxItemSheet } from "./items/item-sheet.js";
 import ChatCommands from "./sys/chat_commands.js";
 
@@ -10,6 +11,8 @@ import CMDTransport from "./commands/cmd_transport.js"
 /* -------------------------------------------- */
 
 Hooks.once("init", async function () {
+
+    CONFIG.Actor.documentClass = HelyxActor;
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("helyx", HelyxItemSheet, {
@@ -50,6 +53,8 @@ Hooks.once('ready', function () {
 
     Hooks.callAll("chatCommandsReady", chatCommands);
 });
+
+Hooks.on('createActor', HelyxActor.createActor);
 
 Hooks.on("chatCommandsReady", function (chatCommands) {
 

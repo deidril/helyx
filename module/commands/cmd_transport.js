@@ -25,8 +25,8 @@ export default class CMDTransportRoom {
             return;
         }
 
-        const r = game.items.getName(args[1]);
-        if (r == null) {
+        const room = game.items.getName(args[1]);
+        if (room == null) {
             ChatMessage.create({
                 user: game.user._id,
                 content: 'room ' + args[1] + ' not found.'
@@ -34,12 +34,12 @@ export default class CMDTransportRoom {
             return;
         }
 
-        WORLD.extract_actor(who);
-        WORLD.insert_actor(who, room);
+        WORLD.extractActor(who);
+        WORLD.insertActor(who, room);
 
         ChatMessage.create({
             user: game.user._id,
-            content: args[0] + ' #' + who._id + ' transported to ' + args[1] + ' #' + room._id
+            content: args[0] + ' #' + who.id + ' transported to ' + args[1] + ' #' + room.id
         });
 
     }

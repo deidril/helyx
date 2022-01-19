@@ -1,23 +1,22 @@
 export default class WORLD {
 
-    static extract_actor(who) {
-        if( who.data.data.position == null) return;
-        if(who.data.data.position == "") return;
+    static extractActor(who) {
+        if( who.getRoom() == undefined) return;
         
-        const location = game.items.get( who.data.data.position );
+        const location = game.items.get(who.getRoom() );
         if(location == null ) return ;
 
-        const index = location.data.data.actors.indexOf(who._id);
+        const index = location.data.data.actors.indexOf(who.id);
         if(index > -1 ) {
             location.data.data.actors.splice(index);
         }
 
-        who.data.data.position = "";
+        who.setRoom(undefined);
     }
 
-    static insert_actor(who, room) {
-        room.data.data.actors.push(who._id);
-        who.data.data.position = room._id;
+    static insertActor(who, room) {
+        room.data.data.actors.push(who.id);
+        who.setRoom(room.id);
     }
 
 }

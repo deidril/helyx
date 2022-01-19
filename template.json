@@ -10,7 +10,10 @@
         }
       },
       "position": {
-        "room":  ""
+        "position": {
+          "room": "",
+          "position_mode":  ""
+        }
       }
     },
     "character": {
