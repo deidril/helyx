@@ -39,7 +39,7 @@
     }
   },
   "Item": {
-    "types": [ "item", "room" ],
+    "types": [ "item", "room", "event" ],
     "item": {
       "description": "",
       "quantity": 1,
@@ -52,6 +52,10 @@
       "exits": {},
       "items": [],
       "actors": []
+    },
+    "event": {
+      "description": "",
+      "event_type":  ""
     }
   }
 }
