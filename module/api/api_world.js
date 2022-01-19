@@ -14,15 +14,17 @@ export default class WORLD {
         who.setRoom(undefined);
     }
 
-    static insertActor(who, room) {
-        room.data.data.actors.push(who.id);
-        who.setRoom(room.id);
+    static async insertActor(who, room) {
+        let actorList = room.data.data.actors;
+        actorList.push(who.id);
+        await room.update({ 'data.actors': actorList });
+        await who.update({ 'data.position.room': room.id });
     }
 
     static listActors(arrayIds) {
         let res = "";
         for (const i of arrayIds) {
-            if (res.lgnth == 0) {
+            if (res.length != 0) {
                 res += ", ";
             }
             const who = game.actors.get(i);
