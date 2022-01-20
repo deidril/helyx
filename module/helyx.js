@@ -1,9 +1,10 @@
 import { HelyxActor } from './actors/actor.js';
 import { HelyxItemSheet } from "./items/item-sheet.js";
+import { HelyxActorSheet } from "./actors/actor-sheet.js";
 import ChatCommands from "./sys/chat_commands.js";
 
 import CMDLookRoom from "./commands/cmd_look_room.js"
-import CMDStartEvent from "./commands/cmd_start_event.js"
+import CMDPrintEvent from "./commands/cmd_print_event.js"
 import CMDStatRoom from "./commands/cmd_stat_room.js"
 import CMDTransport from "./commands/cmd_transport.js"
 
@@ -20,6 +21,12 @@ Hooks.once("init", async function () {
         makeDefault: true,
         label: "HELYX.SheetClassItem",
     });
+
+    Actors.unregisterSheet("core", ActorSheet);
+    Actors.registerSheet("helyx", HelyxActorSheet, {
+        makeDefault: true,
+        label: "HELYX.SheetClassActor",
+    });    
 
 });
 
@@ -98,13 +105,13 @@ Hooks.on("chatCommandsReady", function (chatCommands) {
 
     // (GM Only) This Command will display the text after the command as well as invoke the method
     chatCommands.registerCommand(chatCommands.createCommandFromData({
-        commandKey: "/estart",
+        commandKey: "/eprint",
         invokeOnCommand: (command, chatlog, messageText, chatdata) => {
-            CMDStartEvent.invoke(command, chatlog, messageText, chatdata);
+            CMDPrintEvent.invoke(command, chatlog, messageText, chatdata);
         },
         shouldDisplayToChat: false,
         iconClass: "fa-sticky-note",
-        description: "Start an event",
+        description: "Print an event",
         gmOnly: true,
         syntax: 'eventname'
     }));    

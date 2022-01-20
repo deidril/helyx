@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": [ "character" ],
+    "types": [ "character" , "event"],
     "templates": {
       "abilities": {
         "str": {
@@ -36,10 +36,13 @@
       },
       "attributes": {},
       "groups": {}
+    },
+    "event" : {
+
     }
   },
   "Item": {
-    "types": [ "item", "room", "event" ],
+    "types": [ "item", "room", "screenplay", "eventstep" ],
     "item": {
       "description": "",
       "quantity": 1,
@@ -53,9 +56,15 @@
       "items": [],
       "actors": []
     },
-    "event": {
+    "screenplay": {
       "description": "",
-      "event_type":  ""
+      "play_type":  "",
+      "choices": []
+    },
+    "eventstep" :{
+      "description": "",
+      "step_type": "",
+      "html": ""
     }
   }
 }

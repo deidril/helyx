@@ -1,10 +1,10 @@
 import EVENTS from "../api/api_event.js"
 
-export default class CMDStartEvent {
+export default class CMDPrintEvent {
 
     static invoke(command, chatlog, messageText, chatdata) 
     {
-        const ev = game.items.getName(messageText);
+        const ev = game.actors.getName(messageText);
         if (ev == undefined) 
         {
             ChatMessage.create({ user: game.user._id, content: 'event ' + messageText + ' not found.' });

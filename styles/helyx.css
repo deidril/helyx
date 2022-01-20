@@ -8,6 +8,15 @@
         padding: 0 5px;
 }
 
+.helyx.sheet.actor .sheet-body .description .editor {
+    height: 250px;
+    border: 1px solid black;
+}
+
+.helyx.sheet.actor .sheet-body .description .editor .editor-content {
+        padding: 0 5px;
+}
+
 .event-dialog .event-section .event-block ::-webkit-scrollbar-thumb {
     border-radius: 2px;
     border: 1px solid #7a7971;
@@ -18,6 +27,15 @@
     background: rgba(0, 0, 0, 0.9);
 }
 
+.event-dialog .dialog-buttons {
+    display: none;
+}
+
+.revent-dialog .window-resizable-handle {
+    bottom: none;
+    top: 0px;
+}
+
 
 .event-dialog .event-section .event-block {
     float: left;
@@ -26,6 +44,7 @@
     margin-left: 10px;
     margin-right: 10px;
     overflow: auto;
+    border: 1px solid black;
 }
 
 .event-dialog .event-section .event-name {
@@ -40,6 +59,16 @@
 .event-dialog .event-section .event-portrait {
     width: 100%;
     height: 100%;
+}
+
+.event-dialog .event-section .event-portrait img {
+    width: 100%;
+    height: calc(100% -40px);
+}
+
+.event-dialog .event-section .event-portrait-name {
+    width: 100%;
+    height: 40px;
 }
 
 .event-dialog .event-section .event-actor {
