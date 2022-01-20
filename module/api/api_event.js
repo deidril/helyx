@@ -26,6 +26,14 @@ export default class EVENTS {
         const l = EVENTS.left(w);
         const t = EVENTS.top(h);
 
+        // Remove title and buttons size + paddings
+        const sh = h - 80;
+        dialogData.sectionHeight = "" + sh + "px";
+
+        const ch = sh - 12;
+        dialogData.contentHeight = "" + ch + "px";
+
+
         let resp = await new Promise
         (
             async resolve => 

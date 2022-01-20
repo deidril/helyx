@@ -8,23 +8,30 @@
         padding: 0 5px;
 }
 
-.event-dialog .event-section {
-    overflow: auto;
+.event-dialog .event-section .event-block ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    border: 1px solid #7a7971;
 }
+
+.event-dialog .event-section .event-block ::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
 
 .event-dialog .event-section .event-block {
     float: left;
     width: calc(100% - 320px);
-    height: 100%;
+    height: calc(100% - 34px);
     margin-left: 10px;
     margin-right: 10px;
+    overflow: auto;
 }
 
 .event-dialog .event-section .event-name {
     float: left;
     width: 150px;
-    height: 100%;
-    line-height: 200px;    
+    height: calc(100% - 34px); 
     border: 1px solid black;
     text-align: center;
     vertical-align: middle;
@@ -38,8 +45,7 @@
 .event-dialog .event-section .event-actor {
     float: left;
     width: 150px;
-    height: 100%;
-    line-height: 200px;    
+    height: calc(100% - 34px);  
     border: 1px solid black;
     text-align: center;
     vertical-align: middle;
