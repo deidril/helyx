@@ -1,16 +1,16 @@
 <section class="event-section" style="max-height: {{sectionHeight}};">
-    <div class="event-actor" style="line-height: {{contentHeight}};">
-        <img class="event-portrait" src="tokens/orc_001.jpg">
-        <h2 class="event-portrait-name">{{leftName}}</h2>
+    <div class="event-actor" style="height: {{contentHeight}}; display:flex; align-items:center;">
+        <img class="event-portrait" style="{{left.imgStyle}}" src="{{left.imgSrc}}">
+        <h4 class="{{left.nameCssClass}}">{{left.name}}</h2>
     </div>
     <section class="event-block" style="max-height: {{contentHeight}};">
     <div class="">
         {{event.data.data.description}}
     </div>
     </section>
-    <div class="event-actor" style="line-height: {{contentHeight}};">
-        <img class="event-portrait" src="tokens/orc_002.jpg">
-        <h2 class="event-portrait-name">{{rightName}}</h2>
+    <div class="event-actor" style="height: {{contentHeight}}; display:flex; flex-direction:column;"">
+        <img class="event-portrait" style="{{right.imgStyle}}" src="{{right.imgSrc}}">
+        <h4 class="{{right.nameCssClass}}">{{right.name}}</h2>
     </div>
 </section>
 

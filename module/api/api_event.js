@@ -33,8 +33,17 @@ export default class EVENTS {
         const ch = sh - 12;
         dialogData.contentHeight = "" + ch + "px";
 
-        dialogData.leftName = "LEFT GUY";
-        dialogData.rightName = "RIGHT GUY";
+        dialogData.left = {};
+        dialogData.left.name = "LEFT GUY";
+        dialogData.left.imgStyle = "display:none;";
+        dialogData.left.imgSrc = "tokens/orc_001.jpg";
+        dialogData.left.nameCssClass = "event-noportrait-name";
+        
+        dialogData.right = {};        
+        dialogData.right.name = "Aria";
+        dialogData.right.imgStyle = "";
+        dialogData.right.imgSrc = "systems/helyx/assets/aria.png";
+        dialogData.right.nameCssClass = "event-portrait-name";        
 
 
         let resp = await new Promise
